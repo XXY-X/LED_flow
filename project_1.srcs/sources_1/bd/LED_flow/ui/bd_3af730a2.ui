@@ -1,0 +1,33 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.5",
+   "Default View_TopLeft":"-177,-10",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port port-id_clk -pg 1 -lvl 0 -x -40 -y 50 -defaultsOSRD
+preplace port port-id_rst_n -pg 1 -lvl 0 -x -40 -y 90 -defaultsOSRD
+preplace port port-id_KEY -pg 1 -lvl 0 -x -40 -y 230 -defaultsOSRD
+preplace port port-id_Freq_Change -pg 1 -lvl 0 -x -40 -y 70 -defaultsOSRD
+preplace portBus LED -pg 1 -lvl 3 -x 730 -y 290 -defaultsOSRD
+preplace portBus SW -pg 1 -lvl 0 -x -40 -y 370 -defaultsOSRD
+preplace inst pwm_generator_0 -pg 1 -lvl 1 -x 120 -y 330 -defaultsOSRD
+preplace inst clk_divider_0 -pg 1 -lvl 1 -x 120 -y 70 -defaultsOSRD
+preplace inst led_pwm_controller_0 -pg 1 -lvl 2 -x 560 -y 290 -defaultsOSRD
+preplace netloc Freq_Change_1 1 0 1 -20 70n
+preplace netloc KEY_1 1 0 2 NJ 230 240
+preplace netloc SW_1 1 0 2 -10J 430 250
+preplace netloc clk_1 1 0 2 -10 200 N
+preplace netloc clk_divider_0_clk_out 1 1 1 260 70n
+preplace netloc led_pwm_controller_0_led_out 1 2 1 N 290
+preplace netloc pwm_generator_0_pwm_out_60 1 1 1 250 360n
+preplace netloc pwm_generator_0_pwm_out_70 1 1 1 250 340n
+preplace netloc pwm_generator_0_pwm_out_80 1 1 1 250 320n
+preplace netloc pwm_generator_0_pwm_out_90 1 1 1 250 300n
+preplace netloc pwm_generator_0_pwm_out_100 1 1 1 250 280n
+preplace netloc rst_n_1 1 0 2 0 220 250
+levelinfo -pg 1 -40 120 560 730
+pagesize -pg 1 -db -bbox -sgen -180 -80 850 470
+"
+}
+0

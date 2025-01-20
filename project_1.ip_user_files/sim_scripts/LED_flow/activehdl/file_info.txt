@@ -1,0 +1,5 @@
+LED_flow_led_pwm_controller_0_0.v,verilog,xil_defaultlib,../../../bd/LED_flow/ip/LED_flow_led_pwm_controller_0_0/sim/LED_flow_led_pwm_controller_0_0.v,
+LED_flow_clk_divider_0_0.v,verilog,xil_defaultlib,../../../bd/LED_flow/ip/LED_flow_clk_divider_0_0/sim/LED_flow_clk_divider_0_0.v,
+LED_flow_pwm_generator_0_0.v,verilog,xil_defaultlib,../../../bd/LED_flow/ip/LED_flow_pwm_generator_0_0/sim/LED_flow_pwm_generator_0_0.v,
+LED_flow.v,verilog,xil_defaultlib,../../../bd/LED_flow/sim/LED_flow.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

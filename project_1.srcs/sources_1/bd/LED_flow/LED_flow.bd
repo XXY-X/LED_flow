@@ -1,0 +1,266 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xDE4C9915F944452F",
+      "device": "xc7z020clg400-1",
+      "gen_directory": "../../../../project_1.gen/sources_1/bd/LED_flow",
+      "name": "LED_flow",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2022.2",
+      "validated": "true"
+    },
+    "design_tree": {
+      "pwm_generator_0": "",
+      "clk_divider_0": "",
+      "led_pwm_controller_0": ""
+    },
+    "ports": {
+      "clk": {
+        "direction": "I"
+      },
+      "rst_n": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW",
+            "value_src": "default"
+          }
+        }
+      },
+      "KEY": {
+        "direction": "I"
+      },
+      "LED": {
+        "direction": "O",
+        "left": "17",
+        "right": "0"
+      },
+      "SW": {
+        "direction": "I",
+        "left": "17",
+        "right": "0"
+      },
+      "Freq_Change": {
+        "direction": "I"
+      }
+    },
+    "components": {
+      "pwm_generator_0": {
+        "vlnv": "xilinx.com:module_ref:pwm_generator:1.0",
+        "xci_name": "LED_flow_pwm_generator_0_0",
+        "xci_path": "ip\\LED_flow_pwm_generator_0_0\\LED_flow_pwm_generator_0_0.xci",
+        "inst_hier_path": "pwm_generator_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "pwm_generator",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "pwm_out_100": {
+            "direction": "O"
+          },
+          "pwm_out_90": {
+            "direction": "O"
+          },
+          "pwm_out_80": {
+            "direction": "O"
+          },
+          "pwm_out_70": {
+            "direction": "O"
+          },
+          "pwm_out_60": {
+            "direction": "O"
+          }
+        }
+      },
+      "clk_divider_0": {
+        "vlnv": "xilinx.com:module_ref:clk_divider:1.0",
+        "xci_name": "LED_flow_clk_divider_0_0",
+        "xci_path": "ip\\LED_flow_clk_divider_0_0\\LED_flow_clk_divider_0_0.xci",
+        "inst_hier_path": "clk_divider_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "clk_divider",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk_in": {
+            "direction": "I"
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "key_in": {
+            "direction": "I"
+          },
+          "clk_out": {
+            "direction": "O"
+          }
+        }
+      },
+      "led_pwm_controller_0": {
+        "vlnv": "xilinx.com:module_ref:led_pwm_controller:1.0",
+        "xci_name": "LED_flow_led_pwm_controller_0_0",
+        "xci_path": "ip\\LED_flow_led_pwm_controller_0_0\\LED_flow_led_pwm_controller_0_0.xci",
+        "inst_hier_path": "led_pwm_controller_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "led_pwm_controller",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "clk_1hz": {
+            "direction": "I"
+          },
+          "rst_n": {
+            "type": "rst",
+            "direction": "I",
+            "parameters": {
+              "POLARITY": {
+                "value": "ACTIVE_LOW",
+                "value_src": "constant"
+              }
+            }
+          },
+          "dir_change": {
+            "direction": "I"
+          },
+          "pwm_in_100": {
+            "direction": "I"
+          },
+          "pwm_in_90": {
+            "direction": "I"
+          },
+          "pwm_in_80": {
+            "direction": "I"
+          },
+          "pwm_in_70": {
+            "direction": "I"
+          },
+          "pwm_in_60": {
+            "direction": "I"
+          },
+          "range_ctrl": {
+            "direction": "I",
+            "left": "17",
+            "right": "0"
+          },
+          "led_out": {
+            "direction": "O",
+            "left": "17",
+            "right": "0"
+          }
+        }
+      }
+    },
+    "nets": {
+      "Freq_Change_1": {
+        "ports": [
+          "Freq_Change",
+          "clk_divider_0/key_in"
+        ]
+      },
+      "KEY_1": {
+        "ports": [
+          "KEY",
+          "led_pwm_controller_0/dir_change"
+        ]
+      },
+      "SW_1": {
+        "ports": [
+          "SW",
+          "led_pwm_controller_0/range_ctrl"
+        ]
+      },
+      "clk_1": {
+        "ports": [
+          "clk",
+          "pwm_generator_0/clk",
+          "clk_divider_0/clk_in",
+          "led_pwm_controller_0/clk"
+        ]
+      },
+      "clk_divider_0_clk_out": {
+        "ports": [
+          "clk_divider_0/clk_out",
+          "led_pwm_controller_0/clk_1hz"
+        ]
+      },
+      "led_pwm_controller_0_led_out": {
+        "ports": [
+          "led_pwm_controller_0/led_out",
+          "LED"
+        ]
+      },
+      "pwm_generator_0_pwm_out_60": {
+        "ports": [
+          "pwm_generator_0/pwm_out_60",
+          "led_pwm_controller_0/pwm_in_60"
+        ]
+      },
+      "pwm_generator_0_pwm_out_70": {
+        "ports": [
+          "pwm_generator_0/pwm_out_70",
+          "led_pwm_controller_0/pwm_in_70"
+        ]
+      },
+      "pwm_generator_0_pwm_out_80": {
+        "ports": [
+          "pwm_generator_0/pwm_out_80",
+          "led_pwm_controller_0/pwm_in_80"
+        ]
+      },
+      "pwm_generator_0_pwm_out_90": {
+        "ports": [
+          "pwm_generator_0/pwm_out_90",
+          "led_pwm_controller_0/pwm_in_90"
+        ]
+      },
+      "pwm_generator_0_pwm_out_100": {
+        "ports": [
+          "pwm_generator_0/pwm_out_100",
+          "led_pwm_controller_0/pwm_in_100"
+        ]
+      },
+      "rst_n_1": {
+        "ports": [
+          "rst_n",
+          "pwm_generator_0/rst_n",
+          "clk_divider_0/rst_n",
+          "led_pwm_controller_0/rst_n"
+        ]
+      }
+    }
+  }
+}

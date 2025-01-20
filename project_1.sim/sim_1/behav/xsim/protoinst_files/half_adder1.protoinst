@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"half_adder1": {
+			"proto_instances": {
+			}
+		}
+	}
+}

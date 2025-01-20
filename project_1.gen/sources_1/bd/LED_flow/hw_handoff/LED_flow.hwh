@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Dec 20 16:31:37 2024" VIVADOVERSION="2022.2">
+
+  <SYSTEMINFO ARCH="zynq" BOARD="tul.com.tw:pynq-z2:part0:1.0" DEVICE="7z020" NAME="LED_flow" PACKAGE="clg400" SPEEDGRADE="-1"/>
+
+  <EXTERNALPORTS>
+    <PORT DIR="I" NAME="clk" SIGIS="undef" SIGNAME="External_Ports_clk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pwm_generator_0" PORT="clk"/>
+        <CONNECTION INSTANCE="clk_divider_0" PORT="clk_in"/>
+        <CONNECTION INSTANCE="led_pwm_controller_0" PORT="clk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rst_n" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_rst_n">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="pwm_generator_0" PORT="rst_n"/>
+        <CONNECTION INSTANCE="clk_divider_0" PORT="rst_n"/>
+        <CONNECTION INSTANCE="led_pwm_controller_0" PORT="rst_n"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="KEY" SIGIS="undef" SIGNAME="External_Ports_KEY">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="led_pwm_controller_0" PORT="dir_change"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="17" NAME="LED" RIGHT="0" SIGIS="undef" SIGNAME="led_pwm_controller_0_led_out">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="led_pwm_controller_0" PORT="led_out"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="17" NAME="SW" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_SW">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="led_pwm_controller_0" PORT="range_ctrl"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="Freq_Change" SIGIS="undef" SIGNAME="External_Ports_Freq_Change">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="clk_divider_0" PORT="key_in"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/clk_divider_0" HWVERSION="1.0" INSTANCE="clk_divider_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="clk_divider" VLNV="xilinx.com:module_ref:clk_divider:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="LED_flow_clk_divider_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="clk_in" SIGIS="undef" SIGNAME="External_Ports_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst_n" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_rst_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="key_in" SIGIS="undef" SIGNAME="External_Ports_Freq_Change">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="Freq_Change"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="clk_out" SIGIS="undef" SIGNAME="clk_divider_0_clk_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_pwm_controller_0" PORT="clk_1hz"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/led_pwm_controller_0" HWVERSION="1.0" INSTANCE="led_pwm_controller_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="led_pwm_controller" VLNV="xilinx.com:module_ref:led_pwm_controller:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="LED_flow_led_pwm_controller_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="clk_1hz" SIGIS="undef" SIGNAME="clk_divider_0_clk_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="clk_divider_0" PORT="clk_out"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst_n" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_rst_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="dir_change" SIGIS="undef" SIGNAME="External_Ports_KEY">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="KEY"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pwm_in_100" SIGIS="undef" SIGNAME="pwm_generator_0_pwm_out_100">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pwm_generator_0" PORT="pwm_out_100"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pwm_in_90" SIGIS="undef" SIGNAME="pwm_generator_0_pwm_out_90">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pwm_generator_0" PORT="pwm_out_90"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pwm_in_80" SIGIS="undef" SIGNAME="pwm_generator_0_pwm_out_80">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pwm_generator_0" PORT="pwm_out_80"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pwm_in_70" SIGIS="undef" SIGNAME="pwm_generator_0_pwm_out_70">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pwm_generator_0" PORT="pwm_out_70"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="pwm_in_60" SIGIS="undef" SIGNAME="pwm_generator_0_pwm_out_60">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="pwm_generator_0" PORT="pwm_out_60"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="17" NAME="range_ctrl" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_SW">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="SW"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="17" NAME="led_out" RIGHT="0" SIGIS="undef" SIGNAME="led_pwm_controller_0_led_out">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="LED"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/pwm_generator_0" HWVERSION="1.0" INSTANCE="pwm_generator_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="pwm_generator" VLNV="xilinx.com:module_ref:pwm_generator:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="Component_Name" VALUE="LED_flow_pwm_generator_0_0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="External_Ports_clk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="clk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="rst_n" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="External_Ports_rst_n">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rst_n"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="pwm_out_100" SIGIS="undef" SIGNAME="pwm_generator_0_pwm_out_100">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_pwm_controller_0" PORT="pwm_in_100"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="pwm_out_90" SIGIS="undef" SIGNAME="pwm_generator_0_pwm_out_90">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_pwm_controller_0" PORT="pwm_in_90"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="pwm_out_80" SIGIS="undef" SIGNAME="pwm_generator_0_pwm_out_80">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_pwm_controller_0" PORT="pwm_in_80"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="pwm_out_70" SIGIS="undef" SIGNAME="pwm_generator_0_pwm_out_70">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_pwm_controller_0" PORT="pwm_in_70"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="pwm_out_60" SIGIS="undef" SIGNAME="pwm_generator_0_pwm_out_60">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="led_pwm_controller_0" PORT="pwm_in_60"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>
